@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Student Directory - Portal{% endblock %}
+
+{% block content %}
+    <div class="header-actions">
+        <h1>Student Directory</h1>
+        <a href="{% url 'sform' %}" class="btn btn-primary">+ Add Student</a>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Branch</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in all %}
+                <tr>
+                    <td>{{a.roll_no}}</td>
+                    <td>{{a.st_name}}</td>
+                    <td>{{a.age}}</td>
+                    <td>{{a.email}}</td>
+                    <td>{{a.branch}}</td>
+                    <td class="action-links">
+                        <a href="{% url 'supdate' a.id %}" class="edit-link">Edit</a>
+                        <a href="{% url 'sdel' a.id %}" class="delete-link">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">No students found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

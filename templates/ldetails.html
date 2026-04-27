@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Teacher Faculty - Portal{% endblock %}
+
+{% block content %}
+    <div class="header-actions">
+        <h1>Teacher Faculty</h1>
+        <a href="{% url 'lform' %}" class="btn btn-pink">+ Add Teacher</a>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Emp ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in all %}
+                <tr>
+                    <td>{{a.l_id}}</td>
+                    <td>{{a.l_name}}</td>
+                    <td>{{a.l_email}}</td>
+                    <td>{{a.l_subject}}</td>
+                    <td class="action-links">
+                        <a href="{% url 'lupdate' a.id %}" class="edit-link">Edit</a>
+                        <a href="{% url 'ldel' a.id %}" class="delete-link">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center">No teachers found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

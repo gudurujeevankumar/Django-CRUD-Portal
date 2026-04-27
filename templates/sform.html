@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if student %}Update Student{% else %}Register Student{% endif %} - Portal
+{% endblock %}
+
+{% block content %} 
+    <div class="form-container">
+        <h1>{% if student %}Update Student{% else %}Register Student{% endif %}</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="roll_no">Roll Number</label>
+                <input type="text" id="roll_no" name="roll_no" placeholder="e.g. 22P11A0534" 
+                       value="{{ student.roll_no|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="st_name">Full Name</label>
+                <input type="text" id="st_name" name="st_name" placeholder="Enter full name" 
+                       value="{{ student.st_name|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Enter age" 
+                       value="{{ student.age|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" 
+                       value="{{ student.email|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="branch">Branch</label>
+                <input type="text" id="branch" name="branch" placeholder="e.g. CSE" 
+                       value="{{ student.branch|default:'' }}" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                {% if student %}Save Changes{% else %}Insert Student{% endif %}
+            </button>
+        </form>
+    </div>
+{% endblock %}

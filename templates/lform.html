@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if lecturer %}Update Teacher{% else %}Register Teacher{% endif %} - Portal
+{% endblock %}
+
+{% block content %} 
+    <div class="form-container">
+        <h1>{% if lecturer %}Update Teacher{% else %}Register Teacher{% endif %}</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="l_id">Employee ID</label>
+                <input type="text" id="l_id" name="l_id" placeholder="e.g. THOP-2022-101" 
+                       value="{{ lecturer.l_id|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="l_name">Full Name</label>
+                <input type="text" id="l_name" name="l_name" placeholder="Enter full name" 
+                       value="{{ lecturer.l_name|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="l_email">Email</label>
+                <input type="email" id="l_email" name="l_email" placeholder="example@gmail.com" 
+                       value="{{ lecturer.l_email|default:'' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="l_subject">Subject</label>
+                <input type="text" id="l_subject" name="l_subject" placeholder="e.g. Django" 
+                       value="{{ lecturer.l_subject|default:'' }}" required>
+            </div>
+
+            <button type="submit" class="btn btn-pink">
+                {% if lecturer %}Save Changes{% else %}Insert Teacher{% endif %}
+            </button>
+        </form>
+    </div>
+{% endblock %}

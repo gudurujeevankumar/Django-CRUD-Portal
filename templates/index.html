@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Welcome to Portal{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Portal</h1>
+    
+    <div class="home-container">
+        <a href="{% url 'sform' %}" class="action-card student">
+            <span class="card-icon">🎓</span>
+            <span class="card-title">Student</span>
+        </a>
+
+        <a href="{% url 'lform' %}" class="action-card teacher">
+            <span class="card-icon">👨‍🏫</span>
+            <span class="card-title">Teacher</span>
+        </a>
+    </div>
+{% endblock %}
