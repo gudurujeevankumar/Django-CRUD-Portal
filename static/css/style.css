@@ -140,6 +140,16 @@ h1 {
     font-weight: 700;
 }
 /* Messages */
+.message {
+    background-color: rgba(249, 115, 22, 0.1);
+    border-left: 4px solid #f97316;
+    color: #fed7aa;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    word-break: break-word;
+}
 
 /* Forms */
 .form-container {
@@ -289,3 +299,231 @@ footer {
 /* Utilities */
 .mb-4 { margin-bottom: 1rem; }
 .text-center { text-align: center; }
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 0.75rem 1rem;
+    }
+
+    #logo-text a {
+        font-size: 1.2rem;
+    }
+
+    #nav-a {
+        display: flex;
+        gap: 1rem;
+    }
+
+    #nav-a a {
+        margin-left: 0;
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    main, .content-container {
+        padding: 1.5rem;
+    }
+
+    .home-container {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .action-card {
+        width: 100%;
+        max-width: 250px;
+        padding: 2rem;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .form-container {
+        padding: 2rem;
+        max-width: 100%;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 500px;
+    }
+
+    th, td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .action-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    footer {
+        padding: 1.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile phones (480px and below) */
+@media (max-width: 480px) {
+    nav {
+        height: auto;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #logo-text a {
+        font-size: 1rem;
+    }
+
+    #nav-a {
+        display: flex;
+        gap: 0.75rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #nav-a a {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    main, .content-container {
+        padding: 1rem;
+    }
+
+    .home-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .action-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .card-icon {
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+
+    form {
+        gap: 1rem;
+    }
+
+    .form-group {
+        gap: 0.4rem;
+    }
+
+    label {
+        font-size: 0.8rem;
+    }
+
+    input, .btn {
+        padding: 0.65rem 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .table-container {
+        border-radius: 0.75rem;
+    }
+
+    table {
+        font-size: 0.75rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+    }
+
+    .action-links {
+        gap: 0.25rem;
+    }
+
+    .action-links a {
+        font-size: 0.75rem;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.75rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Extra small phones (320px) */
+@media (max-width: 320px) {
+    #logo-text a {
+        font-size: 0.85rem;
+    }
+
+    #nav-a a {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .action-card {
+        padding: 1rem;
+    }
+
+    .card-icon {
+        font-size: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 0.9rem;
+    }
+}
