@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Ldetails
 from django.db import IntegrityError
+from django.contrib import messages
 
 # Create your views here.
 def hello(request):
@@ -9,23 +10,27 @@ def hello(request):
 
 def lform(request):
     if request.method == 'POST':
-        try:
-            l_id = request.POST.get('l_id')
-            l_name = request.POST.get('l_name')
-            l_email = request.POST.get('l_email')
-            l_subject = request.POST.get('l_subject')
+        l_id = request.POST.get('l_id')
+        l_name = request.POST.get('l_name')
+        l_email = request.POST.get('l_email')
+        l_subject = request.POST.get('l_subject')
 
-            Ldetails.objects.create(
-                l_id=l_id,
-                l_name=l_name,
-                l_email=l_email,
-                l_subject=l_subject
-            )
-
-            return redirect('ldetails')
-
-        except IntegrityError:
-            return HttpResponse("The ID or email you entered already exists!")
+        if Ldetails.objects.filter(l_id = l_id):
+            messages.error(request, "Employee ID already exists!")
+            return redirect('lform')
+        
+        if Ldetails.objects.filter(l_email = l_email):
+            messages.error(request, "Email already exists!")
+            return redirect('lform')
+        
+        Ldetails.objects.create(
+            l_id=l_id,
+            l_name=l_name,
+            l_email=l_email,
+            l_subject=l_subject
+        )
+        messages.success(request, "Teacher registered successfully!")
+        return redirect('ldetails')
 
     return render(request, 'lform.html')
 

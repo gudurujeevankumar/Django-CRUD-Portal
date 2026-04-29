@@ -6,6 +6,13 @@
 {% endblock %}
 
 {% block content %} 
+    {% for message in messages %}
+        <p style = "color:orange;">
+            {{ message }}
+        </p>
+        <br>
+    {% endfor %}
+    <br>
     <div class="form-container">
         <h1>{% if student %}Update Student{% else %}Register Student{% endif %}</h1>
         <form action="" method="POST">

@@ -6,6 +6,13 @@
 {% endblock %}
 
 {% block content %} 
+    {% for message in messages %}
+        <p style = "color:orange;">
+            {{ message }}
+        </p>
+        <br>
+    {% endfor %}
+
     <div class="form-container">
         <h1>{% if lecturer %}Update Teacher{% else %}Register Teacher{% endif %}</h1>
         <form action="" method="POST">
@@ -38,6 +45,7 @@
             <button type="submit" class="btn btn-pink">
                 {% if lecturer %}Save Changes{% else %}Insert Teacher{% endif %}
             </button>
-        </form>
+        </form> 
     </div>
+
 {% endblock %}
