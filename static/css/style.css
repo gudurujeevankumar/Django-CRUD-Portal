@@ -427,13 +427,13 @@ tr:hover td {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 100dvh;
     padding: 2rem;
 }
 
 .auth-box {
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     animation: fadeInUp 0.5s ease;
 }
 
