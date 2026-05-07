@@ -320,8 +320,6 @@ h1 {
 /* Forms */
 .form-container {
     background-color: var(--card-bg);
-    width: 100%;
-    max-width: 500px;
     padding: 2.5rem;
     border-radius: 1.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -524,7 +522,7 @@ tr:hover td {
 
 .auth-box {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     animation: fadeInUp 0.5s ease;
 }
 
@@ -984,8 +982,7 @@ h1 {
 /* Forms */
 .form-container {
     background-color: var(--card-bg);
-    width: 100%;
-    max-width: 500px;
+    width: 500px;
     padding: 2.5rem;
     border-radius: 1.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
