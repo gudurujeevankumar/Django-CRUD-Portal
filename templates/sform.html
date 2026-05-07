@@ -6,9 +6,6 @@
 {% endblock %}
 
 {% block content %} 
-    {% for message in messages %}
-        <p class="message">{{ message }}</p>
-    {% endfor %}
     <div class="form-container">
         <h1>{% if student %}Update Student{% else %}Register Student{% endif %}</h1>
         <form action="" method="POST">

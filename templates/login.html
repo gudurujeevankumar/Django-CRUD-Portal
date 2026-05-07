@@ -9,10 +9,6 @@
             <h1>Welcome Back</h1>
             <p class="auth-subtitle">Sign in to your account</p>
             
-            {% for message in messages %}
-                <p class="message">{{ message }}</p>
-            {% endfor %}
-            
             <div class="form-container">
                 <form action="" method="POST">
                     {% csrf_token %}
