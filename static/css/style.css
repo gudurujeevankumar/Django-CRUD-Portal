@@ -71,6 +71,13 @@ nav {
     color: var(--accent-purple);
 }
 
+#nav-a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+}
+
 #nav-a a {
     font-weight: 500;
     color: var(--text-muted);
@@ -78,6 +85,7 @@ nav {
     margin-left: 2rem;
     transition: var(--transition);
     position: relative;
+    white-space: nowrap;
 }
 
 #nav-a a::after {
@@ -495,6 +503,7 @@ footer {
     nav {
         height: auto;
         padding: 0.75rem 1rem;
+        flex-wrap: wrap;
     }
 
     #logo-text a {
@@ -504,11 +513,19 @@ footer {
     #nav-a {
         display: flex;
         gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
     }
 
     #nav-a a {
         margin-left: 0;
         font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .user-info {
+        white-space: nowrap;
     }
 
     h1 {
@@ -584,8 +601,9 @@ footer {
 @media (max-width: 480px) {
     nav {
         height: auto;
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.5rem;
+        flex-wrap: wrap;
     }
 
     #logo-text a {
@@ -594,15 +612,22 @@ footer {
 
     #nav-a {
         display: flex;
-        gap: 0.75rem;
+        gap: 0.5rem;
         width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
     #nav-a a {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.5rem;
         margin-left: 0;
+    }
+
+    .user-info {
+        font-size: 0.75rem;
+        padding: 0 0.5rem;
     }
 
     h1 {
