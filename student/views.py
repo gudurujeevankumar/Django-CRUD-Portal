@@ -1,13 +1,15 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Sdetails
 from django.db import IntegrityError
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def hello(request):
     return HttpResponse('Hello this is student hello view 👨🏻‍🎓')
 
+@login_required(login_url='login')
 def sform(request):
     if request.method == 'POST':
         roll_no = request.POST.get('roll_no')
@@ -36,15 +38,18 @@ def sform(request):
 
     return render(request,'sform.html')
 
+@login_required(login_url='login')
 def sall(request):
     all = Sdetails.objects.all()
     return render(request,'sdetails.html',{'all':all})
 
+@login_required(login_url='login')
 def sdel(request, id):
     d = Sdetails.objects.get(id=id)
     d.delete()
     return redirect('sdetails')
 
+@login_required(login_url='login')
 def supdate(request, id):
     student = Sdetails.objects.get(id=id)
     if request.method == 'POST':

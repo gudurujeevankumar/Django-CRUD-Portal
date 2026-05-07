@@ -3,11 +3,13 @@ from django.http import HttpResponse
 from .models import Ldetails
 from django.db import IntegrityError
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def hello(request):
     return HttpResponse('Hello this is lecturers hello view 👨🏻‍🎓')
 
+@login_required(login_url='login')
 def lform(request):
     if request.method == 'POST':
         l_id = request.POST.get('l_id')
@@ -34,15 +36,18 @@ def lform(request):
 
     return render(request, 'lform.html')
 
+@login_required(login_url='login')
 def lall(request):
     all = Ldetails.objects.all()
     return render(request,'ldetails.html',{'all':all})
 
+@login_required(login_url='login')
 def ldel(request,id):
     d = Ldetails.objects.get(id=id)
     d.delete()
     return redirect('ldetails')
 
+@login_required(login_url='login')
 def lupdate(request, id):
     lecturer = Ldetails.objects.get(id=id)
     if request.method == 'POST':
