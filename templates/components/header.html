@@ -6,6 +6,13 @@
         <div id="nav-a">
             <a href="{% url 'sdetails' %}">Student</a>
             <a href="{% url 'ldetails' %}">Lecturer</a>
+            {% if user.is_authenticated %}
+                <span class="user-info">👤 {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
         </div>
     </nav>
 </header>
